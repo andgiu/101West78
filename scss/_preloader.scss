@@ -1,0 +1,56 @@
+#preloader {
+    
+    z-index: 999999999;
+    @include AbsoluteFull(fixed);
+    background-color: $COLOR_White;   
+    opacity: 1;
+    //display: none;
+    width: 100vw;
+    
+    svg {
+        
+        position: absolute;
+        width: 250px;
+        height: auto;
+        right: 50%;
+        top: 50%;
+        opacity: 0;
+        margin-right: -125px;
+        margin-top: -82px;
+        
+        @include Transition(all,1s);
+        
+        
+        path {
+            
+            stroke: $COLOR_GrayDark2;
+            stroke-width: 1px;
+            stroke-miterlimit: 10;
+            stroke-dashoffset: 0 0;
+            fill: transparent;  
+        }
+    }
+    
+    #line {
+     
+        position: absolute;
+        width: 0px;
+        height: 1px;
+        left: 50%;
+        margin-left: -125px;
+        
+        top: 50%;
+        margin-top: 120px;
+        background-color:$COLOR_GrayDark2;
+    }
+    
+    &.disabled {
+        
+        @include Animation(preloaderOUT,.75s,1s);
+        
+        svg {
+         
+            opacity: 0 !important;
+        }
+    }
+}

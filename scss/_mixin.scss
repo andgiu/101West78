@@ -1,0 +1,170 @@
+@mixin MediaQuery($media:$MEDIA_Tablet) {
+ 
+    @if $media == $MEDIA_Tablet {
+     
+        @media only screen and (min-width: $MEDIA_Tablet_Width) { @content; }
+    }
+    @else if $media == $MEDIA_DesktopBase {
+        
+        @media only screen and (min-width: $MEDIA_DesktopBase_Width)  { @content; }
+        
+    }
+    @else if $media == $MEDIA_DesktopWide {
+        
+        @media only screen and (min-width: $MEDIA_DesktopWide_Width)  { @content; }
+        
+    }
+    @else if $media == $MEDIA_DesktopLarge {
+        
+        @media only screen and (min-width: $MEDIA_DesktopLarge_Width)  { @content; }
+        
+    }
+    @else if $media == $MEDIA_Smartphone {
+        
+        @media only screen and (max-width: $MEDIA_Smartphone_Width)  { @content; }
+        
+    }
+}
+
+@mixin keyframes($animation-name) {
+    
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin Circle ($size:10px) {
+
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
+@mixin Animation($name,$duration:.5s,$delay:0s,$fillmode:forwards,$ease:$EASE_BEZIER_Out) {
+        
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-fill-mode: $fillmode;
+    -webkit-animation-timing-function: $ease;
+    -webkit-animation-delay: $delay;
+
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-fill-mode: $fillmode;
+    animation-timing-function: $ease;
+    animation-delay: $delay;
+        
+}
+
+@mixin LoopAnimation($name,$duration:1s) {
+    
+    -webkit-animation-name: $name;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: $duration;
+    
+    animation-name: $name;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: $duration;
+}
+
+@mixin Transition($attr,$duration:.3s,$delay:0s,$ease:$EASE_BEZIER_Out) {
+ 
+    -webkit-transition: $attr $duration $ease $delay;
+    transition: $attr $duration $ease $delay;
+    
+}
+
+@mixin Font($family:$FONT_Default,$weight:300,$lh:1) {
+ 
+    font-family: $family;
+    font-weight: $weight;
+    line-height: $lh;
+}
+
+@mixin FontSizeToEM($size:16,$lh:1) {
+
+    font-size: #{$size / 16}em;
+    line-height: $lh;
+
+}
+
+
+@mixin VerticalAlign($position: relative) {
+    
+    position: $position;
+    top: 50%;
+    
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin AbsoluteFull($position: absolute) {
+
+    position: $position;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin Translate($x:0,$y:0,$z:0) {
+
+    -webkit-transform: translate3d($x,$y,$z);
+    transform: translate3d($x,$y,$z); 
+    
+}
+
+@mixin Rotate($rotation:0deg) {
+
+    -webkit-transform: rotateZ($rotation);
+    transform: rotateZ($rotation);
+
+}
+
+@mixin Scale($scale:1) {
+
+    -webkit-transform: scale($scale);
+    transform: scale($scale);
+}
+
+
+@mixin BackgroundCover($url:null) {
+ 
+    @if $url  { background-image: url(#{$url}); }
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin LinearGradient($c1,$c2,$direction:horizontal) {
+ 
+    background: $c1;
+    
+    @if $direction == horizontal {
+        
+        background: -moz-linear-gradient(left, $c1 0%, $c2 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, $c1), color-stop(100%, $c2));
+        background: -webkit-linear-gradient(left, $c1 0%, $c2 100%);
+        background: -o-linear-gradient(left, $c1 0%, $c2 100%);
+        background: -ms-linear-gradient(left, $c1 0%, $c2 100%);
+        background: linear-gradient(to right, $c1 0%, $c2 100%);
+        
+    } @else {
+        
+        background: -moz-linear-gradient(top, $c1 0%, $c2 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, $c1), color-stop(100%, $c2));
+        background: -webkit-linear-gradient(top, $c1 0%, $c2 100%);
+        background: -o-linear-gradient(top, $c1 0%, $c2 100%);
+        background: -ms-linear-gradient(top, $c1 0%, $c2 100%);
+        background: linear-gradient(to bottom, $c1 0%, $c2 100%);
+        
+    }
+    
+
+}

@@ -1,0 +1,33 @@
+section.gallery {
+    
+    padding: 0;
+    
+    .row,.column {
+        
+        height: 100%;
+    }
+    
+    .column {
+     
+        overflow: hidden;
+    }
+    
+    .text-holder {
+        
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        background-color: $COLOR_White;
+        z-index: 1;
+        
+        @include MediaQuery($MEDIA_Tablet) {
+            
+            padding: 60px;
+        }
+        
+        p {
+            
+            @include FontSizeToEM(26,1.5);
+        }
+    }
+}

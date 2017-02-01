@@ -1,0 +1,312 @@
+button {
+    
+	width: 100%;
+	@include Translate(0,15px);
+
+	@include MediaQuery($MEDIA_Tablet) {
+
+		width: auto;
+		@include Translate(0,10px);
+
+		&:hover {
+
+			span {
+
+				background-color: $COLOR_GrayLight;
+				color: $COLOR_Black;
+			}
+		}
+	}
+	
+	&.link {
+		
+		margin: 10px 0;
+	}
+
+	span {
+
+		color: $COLOR_White;
+		display: block;
+		padding: 20px 30px;
+		background-color: $COLOR_Black;
+		@include FontSizeToEM(32);
+
+		@include MediaQuery($MEDIA_Tablet) {
+
+			padding: 10px 30px;
+			@include Transition(all,.2s);
+			@include FontSizeToEM(14);
+		}
+	}
+    
+    &.anim-link {
+        
+        float: right;
+        margin-top: 10px;
+        
+        span {
+         
+            @include MediaQuery($MEDIA_Tablet) {
+
+                @include FontSizeToEM(18);
+            }
+        }
+    }
+}
+
+section#contacts {
+    
+    position: relative;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    
+    p.hover {
+        
+        display: none;
+        position: absolute;
+        width: 100%;
+		line-height: 1.35;
+        right: 0;
+        font-size: 12px;
+        text-transform: none;
+        text-align: right;
+        bottom: -60px;
+        opacity: 0;
+        
+        @include MediaQuery($MEDIA_Tablet) {
+         
+            display: block;
+        }
+        
+    }
+    
+    #message-sent {
+     
+        @include AbsoluteFull();
+        background-color: $COLOR_White;
+        text-align: center;
+        visibility: hidden;
+        opacity: 0;
+        @include Scale(1.2);
+        @include Transition(all);
+        
+        &.active {
+    
+            visibility: visible;
+            opacity: 1;
+            @include Scale(1);
+            
+        }
+        
+        #message-table {
+
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: table;
+            padding: 0 $PADDING_Default / 2;
+            
+            #message-content {
+             
+                position: relative;
+                display: table-cell;
+                vertical-align: middle;
+                
+                p {
+                 
+                    margin: 20px 0;
+                    
+                    &.message-title {
+                     
+                        text-transform: uppercase;
+                        @include FontSizeToEM(36);
+                    }
+                    
+                    &.message-desc {
+                     
+                        text-transform: none;
+                        @include FontSizeToEM(24,1.35);
+                        
+                        span {
+                         
+                            position: relative;
+                            @include Translate(-25%);
+                            display: inline-block;
+                            margin: 0 auto;
+                            
+                            &:first-child {
+                            
+                                @include Translate(-25%);
+                            }
+                            
+                            &:last-child {
+                            
+                                @include Translate(25%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+
+    
+    p.choose {
+     
+        color: $COLOR_GrayMedium;
+        text-align: center;
+        padding: 20px 0;
+        @include FontSizeToEM(22);
+        
+        span {
+            
+            position: relative;
+            @include Transition(all,.5s);
+           
+            &.select {
+               
+                span.line {
+                    
+                    @include Transition(all,.35s);
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-bottom: 2px solid $COLOR_GrayDark;
+                    bottom: -3px;
+                    left: 50%;
+                    @include Translate(-50%);
+                    
+                }
+            }
+            
+        }
+        
+        span.active {
+        
+            cursor: default;
+            color: $COLOR_GrayDark2;
+            
+            span.line {
+              
+                width: 100%;
+                
+            }
+        }
+        
+        span:not(.active) {
+         
+            cursor: pointer;
+            @include Transition(opacity);
+            
+            &:hover {
+             
+                opacity: .5;
+            }
+        }
+    }
+    
+    .padding-left {
+        
+        margin-top: 10px;
+        
+        @include MediaQuery($MEDIA_Tablet) {
+            
+            margin: 0;
+            padding-left: 10px;
+        }
+    }
+    
+    h2 {
+       
+        
+    }
+    
+    h3 {
+     
+        text-transform: none;
+        width: 100%;
+        
+        @include MediaQuery($MEDIA_Tablet) {
+
+            margin: $PADDING_Default / 2 0;
+        }
+        
+    }
+    
+    
+    
+    
+    .radio {
+        
+        margin-top: 20px;
+        @include FontSizeToEM(28);
+        
+        @include MediaQuery($MEDIA_Tablet) {
+                
+                @include FontSizeToEM(14);
+        }
+        
+        input[type="radio"] {
+            
+            margin: 0 0 0 -20px;
+        }
+        
+        a {
+            
+            text-decoration: underline;
+        }
+    }
+    
+    .form-group {
+        
+        margin: 10px 0;
+        
+        .form-control-label {
+            
+            color: $COLOR_GrayDark;
+            white-space: nowrap;
+            margin: 5px 0;
+            @include FontSizeToEM(30);
+            
+            @include MediaQuery($MEDIA_Tablet) {
+                
+                margin: 0;
+                @include FontSizeToEM(14);
+                text-align: right;
+                padding-right: 10px;
+                line-height: 34px;
+            }
+        }
+        
+        textarea,select,input.form-control {
+            
+            //font-style: italic;
+            background-color: $COLOR_GrayLight;
+            border: 0;
+            box-shadow: inset 0 0px 0px $COLOR_White;
+        }
+        
+        textarea {
+            
+            resize: none;
+            min-height: 130px;
+        }
+        
+        
+        p.required {
+            
+            margin: 10px 0;
+            @include FontSizeToEM(20);
+            text-transform: none;
+            
+            @include MediaQuery($MEDIA_Tablet) {
+                
+                @include FontSizeToEM(12);
+            }
+            
+            
+            
+        }
+    }
+}

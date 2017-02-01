@@ -1,0 +1,42 @@
+@include keyframes(CarouselIN) {
+
+    
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@include keyframes(CarouselOUT) {
+
+    0% {opacity: 1}
+    100% {opacity: 0}
+}
+
+@include keyframes(NavIN) {
+
+    0% {visibility: hidden}
+    100% {visibility: visible}
+}
+
+@include keyframes(NavOUT) {
+
+    0% {visibility: visible}
+    100% {visibility: hidden}
+}
+
+@include keyframes(preloaderOUT) {
+    
+    0% {opacity: 1; visibility: visible}
+    100% {opacity: 0; visibility: hidden; display: none;}
+}
+
+@include keyframes(FloorOut) {
+    
+    0% {opacity: 1; visibility: visible}
+    100% {opacity: 0; visibility: hidden; display: none;}
+}
+
+@include keyframes(FloorIn) {
+    
+    0% {opacity: 0; visibility: visible}
+    100% {opacity: 1; visibility: visible; display: block;}
+}

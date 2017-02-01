@@ -1,0 +1,144 @@
+div.popup {
+ 
+    @include AbsoluteFull(fixed);
+    z-index: 999999;
+    background-color: $COLOR_White;
+    padding: $PADDING_Default / 2;
+    text-align: center;
+    
+    @include MediaQuery($MEDIA_Tablet) {
+         
+        padding: $PADDING_Default 0 $PADDING_Default * 2.5 0;
+    }
+    
+    @include Animation(FloorOut,.25s);
+    
+    &.active {
+    
+        @include Animation(FloorIn,.25s);
+    }
+    
+    &.pdf {
+     
+        background-color: rgba($COLOR_White,.96);
+        
+        input {
+         
+            font-style: italic;
+            background-color: $COLOR_GrayLight;
+            border: 0;
+            box-shadow: inset 0 0px 0px $COLOR_White;
+        }
+        
+        .table {
+         
+            max-width: 360px;
+        }
+    }
+    
+    //display: none;
+    
+    .table {
+     
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: table;
+        margin: 0 auto;
+        max-width: 760px;
+        
+        .content {
+         
+            position: relative;
+            width: 100%;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left;
+        }
+    }
+    
+    .text-holder {
+     
+        p {
+         
+            &.title {
+                
+                @include FontSizeToEM(42);
+                margin-bottom: 1em;
+                text-transform: uppercase;
+                font-weight: bold;
+                
+                &.small {
+                 
+                    @include FontSizeToEM(16);
+                }
+            }
+            
+            &.description {
+             
+                @include FontSizeToEM(24,1.35);
+                text-align: justify;
+                
+                @include MediaQuery($MEDIA_Tablet) {
+                 
+                    @include FontSizeToEM(18,1.35);
+                }
+                
+                span.title {
+                 
+                    position: relative;
+                    display: block;
+                    font-size: 120%;
+                    font-weight: bold;
+                    text-align: left;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    
+    .close {
+        
+        position: absolute;
+        right: $PADDING_Default / 6;
+        top: $PADDING_Default / 6;
+        width: 40px;
+        height: 40px;
+        z-index: 99;
+        cursor: pointer;
+        
+        @include MediaQuery($MEDIA_Tablet) {
+         
+            right: $PADDING_Default;
+            top: $PADDING_Default;
+            @include Transition(opacity);
+            
+            
+            &:hover {
+             
+                opacity: .5;
+            }
+        }
+        
+        span {
+         
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $COLOR_GrayDark2;
+            top: 50%;
+            margin-top: -1px;
+            
+            &:nth-child(1) {
+             
+                @include Rotate(-45deg);
+            }
+            
+            &:nth-child(2) {
+             
+                @include Rotate(45deg);
+            }
+        }
+    }
+}

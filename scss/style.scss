@@ -1,0 +1,107 @@
+@import 'vars';
+@import 'mixin';
+@import 'normalize';
+//@import 'fonts';
+@import 'general';
+@import 'animations';
+
+
+html {
+
+
+    overflow-x: hidden;
+
+    font-size: 100%;
+    height: 100vh;
+
+    @include MediaQuery($MEDIA_Tablet) {
+
+        height: 100%;
+    }
+
+    -webkit-font-smoothing: auto;
+    -moz-font-smoothing: auto;
+    font-smoothing:always;
+
+    @media
+    not screen and (-webkit-min-device-pixel-ratio: 2),
+    not screen and (   min--moz-device-pixel-ratio: 2),
+    not screen and (     -o-min-device-pixel-ratio: 2/1),
+    not screen and (        min-device-pixel-ratio: 2),
+    not screen and (                min-resolution: 192dpi),
+    not screen and (                min-resolution: 2dppx) {
+
+
+
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-font-smoothing: antialiased;
+        font-smoothing:always;
+
+    }
+
+    body {
+
+        font-size: 50%;
+        height: 100vh;
+
+        @include MediaQuery($MEDIA_Tablet) {
+
+            height: 100%;
+        }
+
+        @include MediaQuery($MEDIA_Tablet) {
+
+            font-size: 75%;
+        }
+
+        @include MediaQuery($MEDIA_DesktopBase) {
+
+            font-size: 100%;
+        }
+
+        @include Font($FONT_Default,100);
+        color: $COLOR_Black;
+
+    }
+
+    em,i {
+
+        //font-style: normal !important;
+        //font-family: 'MillerBannerLightItalic' !important;
+        //font-weight: 100;
+    }
+}
+
+#wrapper {
+
+    position: fixed;
+
+    &.active {
+
+        position: relative;
+    }
+
+    height: 100vh;
+    @include MediaQuery($MEDIA_Tablet) {
+
+        height: 100%;
+    }
+
+}
+
+@import 'preloader';
+@import 'nav';
+@import 'section';
+@import 'section-carousel';
+@import 'section-slide';
+@import 'section-quote';
+@import 'section-gallery';
+@import 'section-availability';
+@import 'section-map';
+@import 'section-media';
+@import 'section-team';
+@import 'section-contacts';
+@import 'section-press';
+@import 'floor-plan';
+@import 'footer';
+@import 'popup';

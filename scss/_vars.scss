@@ -1,0 +1,28 @@
+$COLOR_White:               #fff;
+$COLOR_Black:               #000;
+$COLOR_GrayLight:           #f2f2f2;
+$COLOR_GrayMedium:          #636363;
+$COLOR_GrayDark:            #3b3b3b;
+$COLOR_GrayDark2:           #4d4d56;
+$COLOR_Red:                 #95312b;
+
+
+$MEDIA_Smartphone:          'smartphone';
+$MEDIA_Tablet:              'tablet';
+$MEDIA_DesktopBase:         'desktop-small';
+$MEDIA_DesktopWide:         'desktop-wide';
+$MEDIA_DesktopLarge:        'desktop-large';
+
+$MEDIA_Smartphone_Width:    767px;
+$MEDIA_Tablet_Width:        768px;
+$MEDIA_DesktopBase_Width:   992px;
+$MEDIA_DesktopWide_Width:   1200px;
+$MEDIA_DesktopLarge_Width:  1280px;
+
+$EASE_Ease:                 ease;
+$EASE_BEZIER_Out:           cubic-bezier(.19,.5,.46,.88);
+$EASE_BEZIER_InOut:         cubic-bezier(.77,0,.175,1);
+
+$PADDING_Default:           80px;
+$MAX_Width:                 1200px;
+$FONT_Default:              'Miller Banner Light', serif;

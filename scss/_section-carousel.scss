@@ -1,0 +1,171 @@
+section.carousel {
+ 
+    position: relative;
+    
+    .carousel-holder {
+     
+        @include AbsoluteFull();
+        
+        .carousel-item {
+         
+            @include AbsoluteFull();
+            opacity: 0;
+            z-index: 1;
+            
+            &:nth-child(1),&.active {
+             
+                @include Animation(CarouselIN,2s);
+                z-index: 2;
+            }
+            
+            &.out {
+             
+                @include Animation(CarouselOUT,2s);
+            }
+        }
+    }
+    
+    .carousel-ui {
+     
+        @include AbsoluteFull();
+        z-index: 10;
+        
+        $counterSize: 10px;
+        .counter-holder {
+         
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            text-align: center;
+            
+            span {
+            
+                display: inline-block;
+                @include Circle($counterSize);
+                background-color: $COLOR_White;
+                opacity: .35;
+                margin: 0 2px;
+                
+                cursor: pointer;
+                @include Transition(opacity,.5s);
+
+                &.active {
+                 
+                    cursor: default;
+                    pointer-events: none;
+                    opacity: 1;
+                }
+            }
+            
+            
+        }
+        
+        $carouselArrowSize: 45px;
+        $carouselArrowLine: 10px;
+        .carousel-arrow {
+            
+            position: absolute;
+            @include Circle($carouselArrowSize);
+            background-color: rgba($COLOR_White,.35);
+            top: 50%;
+            margin-top: -$carouselArrowSize / 2;
+            
+           
+            @include Transition(all);
+            
+            @include MediaQuery($MEDIA_Smartphone) {
+            
+                @include Scale(.8);
+                
+                &.left {
+                    
+                    left: 10px !important;
+                }
+                
+                &.right {
+                    
+                    right: 10px !important;
+                }
+            }
+            
+            @include MediaQuery($MEDIA_Tablet) {
+                
+                cursor: pointer;
+                
+                &:hover {
+                    
+                    background-color: rgba($COLOR_White,.15);
+                    
+                    &.left {
+                        
+                        &:before,&:after {
+                            
+                            margin-left: -$carouselArrowLine;
+                        }
+                    }
+                    
+                    &.right {
+                        
+                        &:before,&:after {
+                            
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+            
+            &:before,&:after {
+                
+                content: ' ';
+                position: absolute;
+                width: $carouselArrowLine;
+                height: 0;
+                border-bottom: 1px solid $COLOR_White;
+                top: 50%;
+                left: 50%;
+                margin-left: -$carouselArrowLine / 2;
+                @include Rotate(-50deg);
+                @include Transition(all);
+            }
+            
+            &:after {
+                    
+                @include Rotate(50deg);
+            }
+            
+            &.left {
+                
+                left: 20px;
+                
+                &:before,&:after {
+                 
+                    -webkit-transform-origin: center left;
+                    transform-origin: center left;
+                }
+
+            }
+            
+            &.right {
+                
+                right: 20px;
+                
+                &:before,&:after {
+                    
+                    -webkit-transform-origin: center right;
+                    transform-origin: center right;
+                    
+                }
+                
+                
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+

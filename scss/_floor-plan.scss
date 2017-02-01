@@ -1,0 +1,92 @@
+#floor-plan {
+ 
+    @include AbsoluteFull(fixed);
+    background-color: rgba($COLOR_Black,.85);
+    padding: $PADDING_Default / 2;
+    z-index: 999999;
+ 
+    
+    @include Animation(FloorOut,.5s);
+    
+    &.active {
+        
+         @include Animation(FloorIn,.35s);
+    
+    }
+    
+    #floor-table {
+     
+        width: 100%;
+        height: 100%;
+        display: table;
+        position: relative;
+        
+        padding: $PADDING_Default;
+    
+        #floor-content {
+         
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: table-cell;
+            vertical-align: middle;
+            overflow: hidden;
+            
+            #floor-content-img {
+             
+                position: relative;
+                float: left;
+                
+                img.main {
+             
+                    width: calc(100% - #{$PADDING_Default});
+                    height: auto;
+                }
+
+                #ui {
+
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: $PADDING_Default;
+                    height: 100%;
+                    background-color: #fafafa;
+                    text-align: center;
+                    padding: 10px 0;
+                    
+                    .circle {
+                        
+                        display: block;
+                        position: relative;
+                        
+                        @include Circle(50px);
+                        background-color: #f2f2f2;
+                        margin: 10px auto;
+                        @include Transition(opacity);
+                        cursor: pointer;
+                        
+                        img {
+                         
+                            position: relative;
+                            width: 20px;
+                            height: auto;
+                            top: 50%;
+                            @include Translate(0,-50%);
+                        }
+                        
+                        &:hover {
+                         
+                            opacity: .5;
+                        }
+                    }
+                }
+                
+            }
+            
+            
+            
+        }
+    }
+    
+    
+}

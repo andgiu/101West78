@@ -1,0 +1,198 @@
+section {
+
+    position: relative;
+    width: 100%;
+    display: table;
+    padding: $PADDING_Default / 2;
+    overflow: hidden;
+    display: block !important;
+
+	@include MediaQuery($MEDIA_Tablet) {
+         
+        padding: $PADDING_Default / 1.5;
+        
+    }
+    
+    #scroll-arrow {
+     
+        position: absolute;
+        z-index: 9999;
+        left: 50%;
+        bottom: 40px;
+        width: 40px;
+        height: auto;
+        margin-left: -20px;
+		@include Transition(opacity);
+		cursor: pointer;
+		
+		&:hover {
+			
+			opacity: .5;
+		}
+    }
+    
+    &.no-padding-bottom {
+    
+        padding-bottom: 0 !important;
+    }
+    
+    &.image {
+        
+        padding: 0 !important;
+        
+        img {
+            
+            width: 100%;
+            height: auto;
+            
+            @include MediaQuery($MEDIA_Tablet) {
+             
+                padding: 0 $PADDING_Default;
+            }
+        }
+        
+        p.caption {
+         
+            text-transform: none;
+            text-align: center;
+            padding: 20px;
+            @include FontSizeToEM(24,1.5);
+            
+            @include MediaQuery($MEDIA_Tablet) {
+             
+                padding: 20px $PADDING_Default;
+                @include FontSizeToEM(16,1.5);
+            }
+            
+        }
+    }
+    
+    &.no-padding {
+     
+        padding: 0;
+        
+        .padding {
+         
+            padding: $PADDING_Default / 2;
+            
+            @include MediaQuery($MEDIA_Tablet) {
+             
+                padding: $PADDING_Default;
+            }
+        }
+        
+        .image-padding {
+
+            position: relative;
+            overflow: hidden;
+            
+            .background {
+             
+                height: 125%;
+            }
+    
+        }
+    }
+    
+    &#home {
+        
+        .text-content {
+     
+            position: absolute;
+            left: $PADDING_Default / 2;
+            bottom: $PADDING_Default / 2.5;
+
+            @include MediaQuery($MEDIA_Tablet) {
+
+                left: $PADDING_Default;
+                bottom: $PADDING_Default;
+
+            }
+        }
+        
+        &.active {
+            
+            h1 {
+                
+                opacity: 1;
+                @include Translate();
+            }
+        }
+    }
+    
+    
+    
+    &.full {
+     
+        height: 40%;
+        
+        @include MediaQuery($MEDIA_Tablet) {
+         
+            height: 100%;
+        }
+    }
+    
+    
+    
+    
+    h1 {
+     
+        @include FontSizeToEM(48);
+        font-weight: 100;
+        color: $COLOR_White;
+        
+        opacity: 0;
+        @include Translate(0,50px);
+        @include Transition(all,1s,1.5s);
+        letter-spacing: 2.5px;
+        
+        @include MediaQuery($MEDIA_Tablet) {
+            
+            @include FontSizeToEM(65);
+        }
+        
+        span {
+         
+            display: block;
+            line-height: 1.22;
+            
+            @include MediaQuery($MEDIA_Tablet) {
+             
+                line-height: 1.25;
+            }
+        }
+    }
+    
+    p {
+       
+        //text-transform: uppercase;
+        
+        &.title {
+         
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $COLOR_GrayDark;
+            margin-bottom: .75em;
+            
+            @include FontSizeToEM(50,1.25);
+        
+            
+        }
+        
+        &.description {
+            
+            letter-spacing: 1px;
+            color: $COLOR_GrayDark;
+            
+            @include FontSizeToEM(26,1.6);
+            
+            @include MediaQuery($MEDIA_Tablet) {
+             
+                @include FontSizeToEM(24,1.6);
+                text-align: left;
+            }
+            
+        }
+     
+    }
+}

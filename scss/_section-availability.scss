@@ -1,0 +1,178 @@
+section.availability {
+    
+    padding: $PADDING_Default / 4;
+    
+    @include MediaQuery($MEDIA_Tablet) {
+     
+        padding: $PADDING_Default;
+    }
+    
+    h2 {
+        
+        padding: 10px;
+        margin-bottom: 40px;
+    }
+	
+	p.caption {
+		
+		position: relative;
+		margin: 20px 0;
+		text-transform: none;
+		font-size: .9em;
+	}
+    
+    .row {
+       
+        position: relative;
+        line-height: 0;
+        padding: 20px 0;
+        width: 100%;
+        display: block !important;
+        
+        &:not(:last-child) {
+         
+            border-bottom: 1px solid rgba($COLOR_GrayMedium,.5);
+        }
+        
+        &.item {
+        
+            display: block;
+            
+        }
+        
+        &.title {
+            
+            display: block;
+            color: $COLOR_GrayMedium;  
+            @include FontSizeToEM(14,1);
+            
+            @include MediaQuery($MEDIA_Smartphone) {
+                
+                span {
+                   
+                    display: block;
+                    -webkit-transform-origin: center left;
+                    transform-origin: center left;
+
+                    @include Rotate(-65deg);
+                    margin-left: 50%;
+                }
+                
+            }
+        }
+        
+        @include MediaQuery($MEDIA_Tablet) {
+            
+            height: 71px;
+            @include Transition(color,.25s);
+            
+            &:not(.title) {
+
+                &:before {
+
+                    content: '';
+                    @include AbsoluteFull();
+                    z-index: -1;
+                    opacity: 0;
+                    display: block;
+                    
+                    background-color: $COLOR_GrayDark;
+                    @include Transition(all,.3s);
+                    
+                }
+                
+                &:hover {
+             
+                    color: $COLOR_White;
+                    
+                    &:before {
+                        
+                        opacity: 1;
+                    }
+                }
+                
+            }
+            
+        }
+        
+        .column {
+            
+            width: 16%;
+            display: inline-block;
+            
+            text-align: center;
+            white-space: nowrap;
+            text-transform: uppercase;
+            @include FontSizeToEM(21,1);
+            
+            @include MediaQuery($MEDIA_Tablet) {
+                
+                @include FontSizeToEM(16,1);
+                font-size: 1.2em;
+            }
+            
+
+            &.room {
+                
+                @include FontSizeToEM(30,1);
+            }
+            
+            &.view {
+             
+                span {
+                
+                    position: relative;
+                    
+                    &.view,&.email {
+                     
+                        cursor: pointer;
+                        border-bottom: 1px solid transparent;
+                        @include Transition(border-color);
+                        margin: 0 5px;
+						
+                        &:hover {
+                         
+                            border-bottom: 1px solid $COLOR_White;
+                        }
+                    }
+                    
+                    &.circle {
+                     
+                        $avCircleSize: 32px;
+                        
+                        position: absolute;
+                        @include Circle($avCircleSize);
+                        background-color: $COLOR_GrayLight;
+                        
+                        @include Transition(opacity);
+                        @include Translate(0,-60%);
+                        
+                        @include MediaQuery($MEDIA_Tablet) { 
+                            
+                            
+                            @include Translate(100%,-25%);
+                            
+                            &:hover {
+                             
+                                opacity: .5;
+                            }
+                            
+                        }
+                        
+                        img {
+                         
+                            position: absolute;
+                            width: 16px;
+                            height: auto;
+                            left: 50%;
+                            top: 50%;
+                            @include Translate(-50%,-50%);
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+}

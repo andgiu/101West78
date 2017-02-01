@@ -1,0 +1,63 @@
+section#team {
+
+    padding-bottom: $PADDING_Default / 2;
+    
+    .team-item {
+        
+        margin: 20px 0;
+        
+        p.team-title {
+            
+            letter-spacing: 1px;
+            color: $COLOR_GrayDark;
+            text-transform: uppercase;
+            margin-bottom: .65em;
+            cursor: pointer;
+            
+            @include FontSizeToEM(32,1.6);
+
+            @include MediaQuery($MEDIA_Tablet) {
+
+                @include Transition(opacity);
+                @include FontSizeToEM(24,1.6);
+                
+                &:hover {
+                    
+                    opacity: .5;
+                }
+            }
+        }
+        
+        p.team-desc {
+            
+            letter-spacing: 1px;
+            color: $COLOR_GrayDark;
+            text-transform: none;
+            
+            @include FontSizeToEM(24,1.6);
+
+            @include MediaQuery($MEDIA_Tablet) {
+
+                @include FontSizeToEM(20,1.6);
+            }
+            
+            height: 0;
+            overflow: hidden;
+            
+            span {
+                
+                position: relative;
+                display: block;
+                
+            }
+            
+            &.active {
+                
+                height: auto;
+            }
+            
+        }
+    }
+    
+
+}
